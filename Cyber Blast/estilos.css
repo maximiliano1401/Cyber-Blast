@@ -1,0 +1,134 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: rgb(55, 55, 55);
+    opacity: 100;
+}
+
+#video-fondo {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: no-repeat;
+    background-size: cover;
+}
+
+#area-juego {
+    width: 1280px;
+    height: 720px;
+    /* background-color: rgba(240, 240, 240, 0.8); */
+    position: relative;
+    margin: 0 auto;
+}
+
+#jugador {
+    width: 50px;
+    height: 50px;
+    /* background-color: blue; */
+    background-image: url(img/prota.gif);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+.proyectil {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+}
+
+.enemigo {
+    width: 50px;
+    height: 50px;
+    background-color: red; 
+    background-image: url(img/enemigo.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+#puntuacion {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: rgb(255, 0, 0);
+}
+
+#controles {
+    position: absolute;
+    bottom: 10px;
+    color: #ffffff;
+}
+
+#vidas {
+    position: absolute;
+    height: max-content;
+    font-size: 24px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+}
+
+#vidas>img {
+    width: 35px;
+
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.disparo {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: red; /* Color del disparo */
+    z-index: 10; /* Asegura que los disparos estén por encima de los enemigos */
+}
+
+.enemigo-escudo {
+    border: 3px solid blue; /* Color del escudo */
+}
+
+.enemigo-sin-escudo {
+    background-color: green; /* Color del enemigo sin escudo */
+}
+
+.enemigo-verde {
+    width: 50px;
+    height: 50px;
+    /* background-color: green; */
+    background-image: url(img/enemigo3.gif);
+    background-size: cover;
+    position: absolute;
+}
+
+.enemigo-azul {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /* background-color: rgb(0, 217, 255); */
+    background-image: url(img/enemigo2.gif);
+    background-size: cover;
+    z-index: 1;
+}

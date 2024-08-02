@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jueguito</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div id="fondo-video">
+        <video autoplay muted loop id="video-fondo">
+            <source src="fondo/0723.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="area-juego">
+        <div id="jugador"></div>
+        <div id="vidas">Vidas:
+            <img src="img/corazon.PNG" id="imagen-vida1">
+            <img src="img/corazon.PNG" id="imagen-vida2">
+            <img src="img/corazon.PNG" id="imagen-vida3">
+        </div>
+
+        <div id="controles">Controles: Movimiento: WASD - Disparo Flechas</div>
+        <div id="puntuacion">Puntuación: <span id="valor-puntuacion">0</span></div>
+
+        <div id="game-over" style="display: none;">
+            <h1>Fin del Juego</h1>
+            <p>Puntuación: <span id="puntuacion-final">0</span></p>
+            <button onclick="reiniciarJuego()">Reiniciar</button>
+        </div>
+    </div>
+
+    <script src="jugador.js"></script>
+    <script src="enemigo.js"></script>
+    <script src="enemigo2.js"></script>
+    <script src="enemigo3.js"></script>
+    <script src="proyectiles.js"></script>
+    <script src="gameover.js"></script>
+    <script src="audio.js"></script>
+    <script src="principal.js"></script>
+</body>
+
+</html>

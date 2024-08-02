@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jueguito - Menú de Inicio</title>
+<style>
+    @font-face {
+        font-family: 'PressStart2P';
+        src: url('https://fonts.cdnfonts.com/s/14510/PressStart2P-Regular.woff') format('woff');
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: 'PressStart2P', Arial, sans-serif;
+        overflow: hidden;
+        position: relative;
+        background: black;
+    }
+
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* Oscurece el fondo pendiente  */
+        z-index: 1;
+    }
+
+    .menu {
+        text-align: center;
+        animation: aparecer 1s ease-in-out;
+        z-index: 2;
+    }
+
+    .menu h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        animation: deslizarArriba 1s ease-in-out;
+        color: #ffcc00;
+    }
+
+    .menu button {
+        display: inline-block;
+        width: 200px;
+        padding: 15px;
+        margin: 10px;
+        font-size: 1.2em;
+        color: #000;
+        background-color: #ffcc00;
+        border: 3px solid #000;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        animation: deslizarAbajo 1s ease-in-out;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    }
+
+    .menu button:hover {
+        background-color: #ffe066;
+        transform: scale(1.1);
+    }
+
+    .menu p {
+        text-align: center;
+        font-size: 1em;
+        margin-top: 20px;
+        display: none;
+        animation: aparecer 1s ease-in-out;
+        color: #ffcc00;
+    }
+
+    @keyframes aparecer {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes deslizarArriba {
+        from { transform: translateY(-50px); }
+        to { transform: translateY(0); }
+    }
+
+    @keyframes deslizarAbajo {
+        from { transform: translateY(50px); }
+        to { transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+<video autoplay muted loop class="background-video">
+    <source src="fondo/juego.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+<div class="menu">
+    <h1>Cyber Blast</h1>
+    <button onclick="iniciarJuego()">Empezar Juego</button>
+    <button onclick="mostrarInstrucciones()">Instrucciones</button>
+    <p id="instrucciones">
+        Controles: Disparar: WASD - Moverse <br>
+        Controles 2: Movimiento: Flecha Arriba - Moverse <br>
+        Controles 3: Movimiento: Flechas - Abajo - Moverse  <br>
+        Controles 4: Movimiento: Flechas - Derecha - Moverse  <br>
+        Controles 5: Movimiento: Flechas - Izquierda - Moverse  
+    </p>
+</div>
+
+<script>
+    function iniciarJuego() {
+        // ruta al hacer click 
+        window.location.href = 'index2.html'; 
+    }
+
+    function mostrarInstrucciones() {
+        const instrucciones = document.getElementById('instrucciones');
+        if (instrucciones.style.display === 'none' || instrucciones.style.display === '') {
+            // Muestra las instrucciones con una animación de desvanecimiento
+            instrucciones.style.display = 'block';
+            instrucciones.style.animation = 'aparecer 1s ease-in-out';
+        } else {
+            // Oculta las instrucciones
+            instrucciones.style.display = 'none';
+        }
+    }
+</script>
+</body>
+</html>
