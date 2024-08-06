@@ -51,7 +51,6 @@ html {
 .enemigo {
     width: 50px;
     height: 50px;
-    background-color: red; 
     background-image: url(img/enemigo.gif);
     background-size: cover;
     background-repeat: no-repeat;
@@ -104,10 +103,6 @@ html {
     height: 5px;
     background-color: red; /* Color del disparo */
     z-index: 10; /* Asegura que los disparos estén por encima de los enemigos */
-}
-
-.enemigo-escudo {
-    border: 3px solid blue; /* Color del escudo */
 }
 
 .enemigo-sin-escudo {

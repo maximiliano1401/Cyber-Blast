@@ -32,10 +32,28 @@ document.addEventListener('keyup', function(event) {
     delete teclasPresionadas[event.key];
 });
 
-// Ejecutar funciones de movimiento, disparo y creación de enemigos cada cierto intervalo
-setInterval(moverJugador, 10);
-setInterval(dispararProyectil, 10);
-setInterval(crearEnemigo, 500); // Crear un nuevo enemigo cada 0.5 segundos
-setInterval(crearEnemigo2, 5000); // Crear un nuevo enemigo2 cada 5 segundo
-setInterval(crearEnemigo3, 10000); // Crear un nuevo enemigo3 cada 10 segundo
+// Función de actualización del juego
+function actualizarJuego() {
+    if (gameover) {
+        return;
+    }
 
+    moverJugador();
+    dispararProyectil();
+
+    // Solicitar el próximo frame
+    requestAnimationFrame(actualizarJuego);
+}
+
+// Función para gestionar la creación de enemigos
+function gestionarCreacionDeEnemigos() {
+    setInterval(crearEnemigo, 1000); // Crear un nuevo enemigo cada 0.1 segundos
+    setInterval(crearEnemigo2, 3800); // Crear un nuevo enemigo2 cada 0.1 segundo
+    setInterval(crearEnemigo3, 5000); // Crear un nuevo enemigo3 cada 0.2 segundos
+}
+
+// Inicia la gestión de creación de enemigos
+gestionarCreacionDeEnemigos();
+
+// Inicia la actualización del juego
+requestAnimationFrame(actualizarJuego);

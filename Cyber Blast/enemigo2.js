@@ -1,3 +1,5 @@
+// ESTE ENEMIGO APARECE REGULARMENTE Y VA A SUPER VELOCIDAD
+
 const pasoEnemigo2 = 8; // Velocidad de movimiento del enemigo2
 
 // Función para crear un nuevo enemigo2

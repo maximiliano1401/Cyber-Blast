@@ -5,10 +5,9 @@ const probabilidadDisparar = 0.1; // Probabilidad de que un enemigo dispare (10%
 function crearEnemigo() {
     if (gameover) return;
     const enemigo = document.createElement('div');
-    enemigo.classList.add('enemigo', 'enemigo-escudo');
+    enemigo.classList.add('enemigo');
     enemigo.id = new Date().getTime(); // Usar timestamp como ID único
     enemigo.disparos = []; // Almacenar disparos asociados al enemigo
-    enemigo.escudo = 2; // Vida del escudo
 
     const direccion = obtenerDireccionAleatoria();
     let posicionInicialX, posicionInicialY;
@@ -204,16 +203,8 @@ function comprobarColisionDisparoJugador(disparo, enemigo) {
 
     if (rectDisparo.bottom >= rectEnemigo.top && rectDisparo.top <= rectEnemigo.bottom &&
         rectDisparo.right >= rectEnemigo.left && rectDisparo.left <= rectEnemigo.right) {
-        if (enemigo.classList.contains('enemigo-escudo')) {
-            enemigo.escudo--; // Reducir vida del escudo
-            if (enemigo.escudo <= 0) {
-                enemigo.classList.remove('enemigo-escudo');
-                enemigo.classList.add('enemigo-sin-escudo');
-            }
-        } else {
-            areaJuego.removeChild(enemigo);
-            enemigos.splice(enemigos.indexOf(enemigo), 1); // Eliminar del array de enemigos
-        }
+        areaJuego.removeChild(enemigo);
+        enemigos.splice(enemigos.indexOf(enemigo), 1); // Eliminar del array de enemigos
         eliminarDisparo(disparo); // Eliminar disparo tras colisión
     }
 }

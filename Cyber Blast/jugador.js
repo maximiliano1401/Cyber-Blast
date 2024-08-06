@@ -1,4 +1,4 @@
-const paso = 2; // Velocidad de movimiento del jugador
+let paso = 5; // Velocidad de movimiento del jugador
 
 // Función para mover al jugador
 function moverJugador() {
@@ -39,6 +39,7 @@ function comprobarColision() {
 
 // Función para reducir las vidas del jugador y comprobar GAME OVER
 function reducirVidasJugador() {
+    muerte.play();
     vidas = Math.max(0, vidas - 1);
     // Mostrar pantalla de Game Over cuando las vidas llegan a 0
     if (vidas === 0) {

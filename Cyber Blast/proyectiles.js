@@ -7,7 +7,8 @@ function dispararProyectil() {
     if (gameover) return;
     const tiempoActual = new Date().getTime();
     if (('ArrowUp' in teclasPresionadas || 'ArrowDown' in teclasPresionadas || 'ArrowLeft' in teclasPresionadas || 'ArrowRight' in teclasPresionadas) && !jugadorOculto && tiempoActual - ultimoDisparoJugador > frecuenciaDisparo) {
-        disparo.play();
+        disparo2.load();
+        disparo2.play();
         const proyectil = document.createElement('div');
         proyectil.classList.add('proyectil');
         proyectil.style.left = (parseInt(jugador.style.left) + anchoJugador / 2 - 5) + 'px'; // Posición inicial del proyectil en el centro del jugador
@@ -52,6 +53,8 @@ function dispararProyectil() {
                     enemigos.splice(enemigos.indexOf(enemigo), 1);
                     puntuacion += 10;
                     elementoPuntuacion.textContent = puntuacion;
+                    explosion.load();
+                    explosion.play();
                 }
             });
 
